@@ -5,15 +5,19 @@ import os
 
 # Load environment variables from .env file
 load_dotenv()
-OPENAI_KEY = os.getenv('OPENAI_KEY')
+LLM_KEY = os.getenv('LLM_KEY')
+LLM_URL = os.getenv('LLM_URL')
 DISCORD_TOKEN = os.getenv('TOKEN')
 
-# Initialize the OpenAI client
-openai_client = OpenAI(api_key=OPENAI_KEY)
+# Initialize the OpenAI client for on-prem LLM
+openai_client = OpenAI(
+    api_key=LLM_KEY,
+    base_url=LLM_URL
+)
 
 def call_openai(question):
     completion = openai_client.chat.completions.create(
-        model="gpt-4o",
+        model="qwen3-14b",
         messages=[
              {
                  "role": "user",
