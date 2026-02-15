@@ -19,9 +19,13 @@ def call_openai(question):
     completion = openai_client.chat.completions.create(
         model="qwen3-14b",
         messages=[
+            {
+                "role": "system",
+                "content": "You are a helpful assistant that responds like a pirate.",
+            },
              {
                  "role": "user",
-                 "content": f"Respond like a pirate to the following question:  {question}",
+                 "content": f"{question}",
             },
         ]
     )
