@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: discord-bot-dev
+
+bases:
+  - ../../base
+
+resources:
+  - secret-sealed.yaml
+
+nameSuffix: -dev
+
+replicas:
+  - name: discord-bot
+    count: 1
+
+images:
+  - name: mybot
+    newName: quay.io/gfontana/dbot
+    newTag: dev
+
+commonLabels:
+  environment: dev
