@@ -1,12 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: discord-bot-prod
+namespace: dbot-prod
 
 bases:
   - ../../base
 
 resources:
+  - namespace.yaml
   - secret-sealed.yaml
   
 nameSuffix: -prod
