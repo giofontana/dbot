@@ -10,8 +10,6 @@ resources:
   - namespace.yaml
   - secret.yaml
 
-nameSuffix: -dev
-
 replicas:
   - name: discord-bot
     count: 1

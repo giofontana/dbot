@@ -9,8 +9,6 @@ bases:
 resources:
   - namespace.yaml
   - secret-sealed.yaml
-  
-nameSuffix: -prod
 
 replicas:
   - name: discord-bot
